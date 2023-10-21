@@ -1,0 +1,24 @@
+{% extends "proyectowebapp/base.html" %}
+
+{% load static %}}
+
+{% block content %}
+ 
+<div class="contenedorFormulario" >
+
+    {% if "valido" in request.GET %}
+
+        <p style="color: antiquewhite";>La Informacion fue enviada correctamente</p>
+
+    {% endif %}
+    
+    <form action="" method="POST" style="text-align: center;">
+        {% csrf_token %}
+        <table style="color: antiquewhite; margin:auto ;"> {{miFormulario.as_table}}</table>
+        <input type="submit" value="Enviar">
+
+    </form>
+    
+</div>
+
+{% endblock %}

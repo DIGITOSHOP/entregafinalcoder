@@ -1,0 +1,20 @@
+<div class="user-avatar">
+    {% if user.userprofile.avatar %}
+        <img src="{{ user.userprofile.avatar.url }}" alt="Avatar">
+    {% else %}
+        <img src="/static/default-avatar.png" alt="Default Avatar">
+        <!-- O puede mostrar un mensaje -->
+        <!-- <p>El usuario no tiene un avatar configurado.</p> -->
+    {% endif %}
+</div>
+{% block content %}
+<h2>Cargar Avatar</h2>
+<form method="post" action="{% url 'user_profile' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }} {# Renderiza el formulario con párrafos #}
+    <button type="submit">Cargar Avatar</button>
+</form>
+<a href="{% url 'Home' %}">Volver al Inicio</a>
+{% endblock %}
+
+

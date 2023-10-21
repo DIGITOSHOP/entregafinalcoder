@@ -1,0 +1,15 @@
+{% extends "base.html" %}  {# Extiende la plantilla base si la tienes #}
+{% block content %}
+<h2>Cargar Avatar</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }} {# Renderiza el formulario con párrafos #}
+    <button type="submit">Cargar Avatar</button>
+</form>
+<a href="{% url 'user_profile' %}">Volver al perfil</a>
+
+
+
+{% endblock %}
+
+ 
